@@ -1,4 +1,4 @@
-let myCountries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
+const myCountries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina',
     'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'The Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus',
     'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei',
     'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada', ' Central African Republic',
@@ -73,6 +73,7 @@ firstButton.addEventListener('click', function(e) { //add an event to the first 
     })
     // p element with id display is given textcontent of 
     numberOfCountries.textContent = `${listOfCountries.length} Countries has the keyword "${value}"`; 
+    
 })
 
 secondButton.addEventListener('click', function(e) { //add an event to the second button

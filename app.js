@@ -29,7 +29,7 @@ totalCountry.textContent = `The toal number of countries are: ${myCountries.leng
 const parentDiv = document.getElementById('parentDiv'); //selected the parent element with class "row"
 // Function to display country
 function displayCountries(displayEachCountry) {//Take the countires as a parameter
-    
+
     parentDiv.innerHTML = "";//clear the parent div
     //display new countries it receives
     displayEachCountry.forEach((country) => {
@@ -57,38 +57,37 @@ const firstButton = document.forms['search'].querySelector('#starting-word'); //
 const secondButton = document.forms['search'].querySelector('#any-word')// i selected the second button
 
 const numberOfCountries = document.getElementById("display"); //i selected the p element with id display
-const listOfCountries = []; //i created an empty array to put countries to be displayed
 
-firstButton.addEventListener('click', function(e) { //add an event to the first button
+firstButton.addEventListener('click', function (e) { //add an event to the first button
     e.preventDefault(); //prevents the page from refreshing
 
     const value = document.forms['search'].querySelector('.input').value.toLowerCase(); //get the value of input
-    const countries = document.querySelectorAll('div .card-body'); //get the div element housing the countries
-    Array.from(countries).forEach((country)=> { //loop through the array of html collections
-        let eachCountry = country.textContent //text content of each html collection, i put inside a variable of eachCountry
-        if (eachCountry.toLowerCase().startsWith(value)) { //if the text content start with the value inputed
-            listOfCountries.push(eachCountry) //push it inside an empty array of name listOfCountries
-            displayCountries(listOfCountries); // call the function display countires and give it an argument 
+    const listOfCountires = []; //initialise an empty array
+
+    myCountries.filter((country) => { //filter the array of countries
+        if (country.toLowerCase().startsWith(value)) { //if the country starts with the value inputed
+            listOfCountires.push(country); //push the countries to the listOfCountry array
+            displayCountries(listOfCountires); //hence display country with an argument of the listOfCountries array
         }
     })
     // p element with id display is given textcontent of 
-    numberOfCountries.textContent = `${listOfCountries.length} Countries has the keyword "${value}"`; 
-    
+    numberOfCountries.textContent = `${listOfCountries.length} Countries has the keyword "${value}"`;
 })
 
-secondButton.addEventListener('click', function(e) { //add an event to the second button
-    e.preventDefault();
+secondButton.addEventListener('click', function (e) { //add an event to the second button
+    e.preventDefault(); //prevents the page from refreshing
+
     const value = document.forms['search'].querySelector('.input').value.toLowerCase(); //get the value of input
-    const countries = document.querySelectorAll('div .card-body'); //get the div element housing the countries
-    Array.from(countries).forEach((country)=> { //loop through the array of html collections
-        let eachCountry = country.textContent //text content of each html collection, i put inside a variable of eachCountry
-        if(eachCountry.toLowerCase().indexOf(value) != -1) { //if the index of what is inputed is found
-            listOfCountries.push(eachCountry) //push it to the empty array listOfCountires
-            displayCountries(listOfCountries); //call the function displayCountry and give it an arguement
+    const listOfCountires = []; //initialise an empty array
+
+    myCountries.filter((country) => { //filter the array of countries
+        if (country.toLowerCase().indexOf(value) != -1) { //if what is inputed is found in any letters of any country
+            listOfCountires.push(country); //push the country into the listOfCountries array
+            displayCountries(listOfCountires); //hence display countries with an argument of the listOfCountries array
         }
     })
     //  p element with id display is given textcontent of 
-    numberOfCountries.textContent = `${listOfCountries.length} Countries has the keyword "${value}"`; 
+    numberOfCountries.textContent = `${listOfCountries.length} Countries has the keyword "${value}"`;
 })
 
 
